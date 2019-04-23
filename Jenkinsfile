@@ -1,6 +1,6 @@
 pipeline
 {
-  agent any
+  agent hema
   stages
   {
     stage ('fetch_code')
