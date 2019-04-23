@@ -1,15 +1,16 @@
 pipeline
 {
+  agent any
   stages
   {
-    stage ("fetch_code")
+    stage ('fetch_code')
     {
       steps
       {
         git 'https://github.com/VTfreshers/h_sonar'
       }
     }
-    stage ("code_analyse")
+    stage ('code_analyse')
     {
       steps
       {
@@ -22,7 +23,7 @@ pipeline
             -Dsonar.login=d93216982649e9cabc544ccb4d5302dd9134f6d9'''
       }
     }
-    stage ("testing")
+    stage ('testing')
     {
       steps
       {
