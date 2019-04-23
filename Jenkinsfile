@@ -14,7 +14,7 @@ pipeline
     {
       steps
       {
-        sh label: '', script: '''sonar-scanner \\
+        sh label: '', script: '''mvn sonar:sonar  \\
             -Dsonar.projectKey=VTfreshers_h_sonar \\
             -Dsonar.organization=vtfreshers-github \\
             -Dsonar.sources=. \\
