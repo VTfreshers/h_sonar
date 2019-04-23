@@ -14,13 +14,7 @@ pipeline
     {
       steps
       {
-        sh label: '', script: '''sonar-scanner \\
-            -Dsonar.projectKey=VTfreshers_h_sonar \\
-            -Dsonar.organization=vtfreshers-github \\
-            -Dsonar.sources=. \\
-            -Dsonar.cfamily.build-wrapper-output=bw-output \\
-            -Dsonar.host.url=https://sonarcloud.io \\
-            -Dsonar.login=3a9026695b1f0e79319ca8724b31f216cd794226'''
+        sh label: '', script: 'SonarQube.Scanner.MSBuild.exe begin /k:"VTfreshers_h_sonar" /d:sonar.organization="vtfreshers-github" /d:sonar.cfamily.build-wrapper-output=bw-output /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="19117eaedc772a060d1203e22304b82781f5758d"'
       }
     }
     stage ('testing')
