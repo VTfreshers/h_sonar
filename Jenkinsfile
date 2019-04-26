@@ -14,9 +14,11 @@ pipeline
     {
       steps
       {
-        sh label: '', script: '''mvn sonar:sonar \\
+        sh label: '', script: '''sonar-scanner \\
   -Dsonar.projectKey=VTfreshers_h_sonar \\
   -Dsonar.organization=vtfreshers-github \\
+  -Dsonar.sources=. \\
+  -Dsonar.cfamily.build-wrapper-output=bw-output \\
   -Dsonar.host.url=https://sonarcloud.io \\
   -Dsonar.login=76a68f14c5c54a1726db65c15840e39d14ca44b2'''
       }
