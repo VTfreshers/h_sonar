@@ -1,6 +1,5 @@
 pipeline
 {
-  agent { label 'hema' }
   stages
   {
     stage ('fetch_code')
@@ -14,7 +13,11 @@ pipeline
     {
       steps
       {
-        sh label: '', script: 'SonarQube.Scanner.MSBuild.exe begin /k:"VTfreshers_h_sonar" /d:sonar.organization="vtfreshers-github" /d:sonar.cfamily.build-wrapper-output=bw-output /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="19117eaedc772a060d1203e22304b82781f5758d"'
+        sh label: '', script: '''mvn sonar:sonar \\
+  -Dsonar.projectKey=VTfreshers_h_sonar \\
+  -Dsonar.organization=vtfreshers-github \\
+  -Dsonar.host.url=https://sonarcloud.io \\
+  -Dsonar.login=76a68f14c5c54a1726db65c15840e39d14ca44b2'''
       }
     }
     stage ('testing')
